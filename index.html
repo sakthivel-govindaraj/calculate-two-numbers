@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title> calculate two numbers</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<script>
+
+		function calc() {
+			var n1 = parseFloat(document.getElementById('n1').value || 0);
+			var n2 = parseFloat(document.getElementById('n2').value || 0);
+
+			var oper = document.getElementById('operators').value;
+
+			if(isNaN(n1) || isNaN(n2)) {
+				document.getElementById('result').textContent = 'Invalid input values';
+			} else {
+				if(oper === '+') {
+					document.getElementById('result').textContent = n1 + n2;
+				}
+
+				if(oper === '-') {
+					document.getElementById('result').textContent = n1 - n2;
+				}
+
+				if(oper === '/') {
+					document.getElementById('result').textContent = n1 / n2;
+				}
+
+				if(oper === 'X') {
+					document.getElementById('result').textContent = n1 * n2;
+				}
+
+			}
+
+			
+		}
+
+	</script>
+	<style>
+		body {
+			text-align: center;
+
+		}
+	</style>
+</head>
+<body>
+	<input type="text" id="n1" placeholder="First value" /><br/><br/>
+	<input type="text" id="n2" placeholder="Second value" /><br/><br/>
+
+	<select id="operators">
+		<option value="+">Add</option>
+		<option value="-">Subtract</option>
+		<option value="/">Divide</option>
+		<option value="X">Multiply</option>
+	</select><br/>
+	<br/>
+
+	<button onclick="calc();">Calculate</button> <br/> <br/>
+	<span>Result: &nbsp;</span><span id="result"></span>
+</body>
+</html>
